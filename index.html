@@ -227,6 +227,81 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none}
 .wcap{position:absolute;transform:translateX(-50%);white-space:nowrap;text-align:center;font-weight:900;font-size:12px;line-height:1.1;color:var(--ink);background:rgba(255,255,255,.85);border-radius:10px;padding:2px 6px;pointer-events:none}
 .setup-note:empty{display:none}
 .steps .step.big{font-size:15px;padding:5px 12px}
+
+/* ===== v3: teams + spectate ===== */
+.szgrid.c2{grid-template-columns:1fr 1fr}
+.sec-h{font-size:clamp(17px,5vw,21px);margin-top:0;line-height:1.05}
+.opt.sz{min-height:48px}
+.opt.sz.ev{font-size:16px;padding:4px 2px}
+.opt.md{min-height:52px;font-size:21px}
+.opt.sm{min-height:48px;font-size:22px;flex-direction:row;gap:8px}
+.opt.sm svg{width:30px;height:26px;flex:none}
+.opt.tsz{font-size:26px;min-height:48px}
+.opt.tn{min-height:50px;font-size:20px;flex-direction:row;gap:8px}
+.opt.tn small{font-size:12px}
+.setup-body{gap:5px}
+.irow{flex:none;display:flex;gap:8px;align-items:center}
+.irow .sec-h{flex:none;width:23%;text-align:left;font-size:clamp(16px,4.6vw,19px)}
+.irow .szgrid{flex:1;min-width:0}
+.teambox.irow{flex-direction:row;align-items:center}
+.tnwrap{display:flex;gap:8px;align-items:center}
+.tnwrap .opt.tn{flex:1.25;min-width:0}
+.tnwrap .swrow{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 6px;justify-items:center}
+.tnwrap .sw{width:44px;height:44px;border-width:3px}.tnwrap .sw.on{transform:scale(1.04)}
+.tnwrap .opt.tn{min-height:90px;flex-direction:column;gap:4px;font-size:18px}
+.mdcol.two{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.mdcol.two .opt.md{flex-direction:column;justify-content:center;text-align:center;gap:0;font-size:18px;padding:2px 6px;min-height:54px}
+.mdcol.two .opt.md .mi{width:28px;height:28px}
+.mdcol.two .opt.md small{font-size:12px}
+.tnrow{display:flex;gap:8px;align-items:center}
+.tnrow .opt.tn{flex:1;min-width:0;flex-direction:row;gap:8px;min-height:50px;font-size:19px;padding:2px 8px}
+.teambox{flex:none;display:flex;flex-direction:column;gap:8px;align-items:stretch}
+.swrow{display:flex;gap:6px;justify-content:center}
+.sw{width:44px;height:44px;border-radius:50%;border:4px solid #fff;background:var(--c);box-shadow:0 4px 0 rgba(0,0,0,.25);flex:none;position:relative}
+.sw.on{border-color:var(--ink);transform:scale(1.12);box-shadow:0 0 0 3px #fff,0 4px 0 rgba(0,0,0,.25)}
+.sw.on:after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M10 21l7 7 13-15' fill='none' stroke='%23fff' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/70% no-repeat;filter:drop-shadow(0 1px 0 rgba(0,0,0,.6))}
+.winfo{display:none;flex:none;justify-content:center;gap:6px;flex-wrap:wrap;margin:0 0 4px}
+.winfo span{background:rgba(255,255,255,.93);border-radius:999px;padding:2px 12px;font-weight:900;font-size:15px;line-height:1.25}
+#s-match.watch .winfo{display:flex}
+.rstrip{display:none;flex:none;gap:10px;margin-top:6px;align-items:center}
+#s-match.team .rstrip{display:flex}
+.rs{flex:1;display:flex;gap:5px;justify-content:center;min-width:0}
+.mav{position:relative;flex:1;max-width:38px;aspect-ratio:1;border-radius:50%;box-shadow:0 2px 0 rgba(0,0,0,.2)}
+.mav .mf{position:absolute;inset:0;border-radius:50%;overflow:hidden;background:#fff;border:3px solid var(--tc,#999);display:flex;align-items:center;justify-content:center}
+.mav .inner{width:112%;height:112%;margin-top:6%;flex:none}
+.mav.now{transform:scale(1.2);z-index:2;box-shadow:0 0 0 3px var(--gold),0 0 0 5px var(--ink);animation:pulse3 .7s infinite alternate}
+@keyframes pulse3{to{transform:scale(1.32)}}
+.mav.lost .mf{opacity:.4;filter:grayscale(1)}
+.mav.won:after,.mav.lost:after{content:"";position:absolute;right:-5px;bottom:-5px;width:17px;height:17px;border-radius:50%;border:2px solid #fff;background:#2fbf4a url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M9 21l8 8 15-17' fill='none' stroke='%23fff' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/78% no-repeat;z-index:3}
+.mav.lost:after{background:#e53935 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M11 11l18 18M29 11L11 29' fill='none' stroke='%23fff' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E") center/70% no-repeat}
+.pips.small{gap:5px}.pips.small .pip{width:17px;height:17px;border-width:2.5px}
+.sb.tmc{box-shadow:inset 0 6px 0 var(--tc),0 4px 0 rgba(0,0,0,.15);padding-top:9px}
+#s-match.watch .sb .nm{color:var(--ink)}
+.ftag{display:none;position:absolute;bottom:0;width:47%;text-align:center;font-weight:900;font-size:15px;line-height:1.1;z-index:3}
+.ftag span{display:inline-block;max-width:100%;background:rgba(255,255,255,.92);border-radius:12px;padding:2px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:bottom}
+.ftag.l{left:1.5%}.ftag.r{right:1.5%}
+#s-match.team .ftag{display:block}
+#s-match.team .fighter{bottom:10%;height:56%}
+.watchbar{display:none;flex:none;gap:10px;height:clamp(84px,13vh,110px)}
+.watchbar .btn{height:100%;min-height:64px;padding:6px 8px;font-size:clamp(18px,5vw,22px);line-height:1.05;text-align:center}
+#btn-skip{flex:1.5;font-size:clamp(28px,8vw,36px)}
+#btn-skipall{flex:1.15}
+#btn-wspeed{flex:.8;font-size:clamp(24px,7vw,32px)}
+#s-match.watch .watchbar{display:flex}
+#s-match.watch .picks,#s-match.watch .tap-hint{display:none}
+.tring{border-radius:12px}
+.tcap.w2{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow-wrap:anywhere}
+.tcap.out{opacity:.45}
+.tn-chip{display:inline-block;max-width:100%;border-radius:10px;padding:1px 8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.msl{display:flex;gap:3px;justify-content:center;margin-top:2px}
+.msl i{display:block;width:24px;height:24px;border-radius:50%;background:#fff;border:2px solid var(--tc);overflow:hidden;position:relative;flex:none}
+.msl i b{position:absolute;left:-6%;top:6%;width:112%;height:112%}
+.bav.tm{border:3px solid #999;background:#fff}
+.tcap{position:absolute;transform:translateX(-50%);max-width:100px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center;font-weight:900;font-size:11px;line-height:1.1;border-radius:8px;padding:1px 5px;pointer-events:none}
+.champ-title .cn{display:block;overflow-wrap:anywhere;line-height:1.02}
+.champ-title.tm{font-size:clamp(22px,6.6vw,42px)}
+#btn-keep{font-size:19px}
+@media (orientation:landscape) and (max-height:500px){.watchbar{height:64px}.rstrip{margin-top:2px}}
 </style>
 </head>
 <body>
@@ -256,11 +331,16 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none}
   </div>
   <div class="setup-body scroll" id="setup-body">
     <div class="setup-you" id="setup-you"></div>
-    <div class="sec-h outline">How many fighters?</div>
+    <div class="irow"><div class="sec-h outline">Game<br>mode</div><div class="szgrid c2" id="gmgrid"></div></div>
+    <div class="sec-h outline" id="h-size">How many fighters?</div>
     <div class="szgrid" id="szgrid"></div>
     <div class="setup-sum" id="setup-sum"></div>
-    <div class="sec-h outline">Who do you fight?</div>
+    <div class="teambox irow" id="team-sec" style="display:none"><div class="sec-h outline">Team<br>size</div><div class="szgrid" id="tsgrid"></div></div>
+    <div class="sec-h outline" id="h-md">Who do you fight?</div>
     <div class="mdcol" id="mdcol"></div>
+    <div class="teambox" id="tn-sec" style="display:none"></div>
+    <div class="sec-h outline">Watch other battles?</div>
+    <div class="szgrid c2" id="wgrid"></div>
     <div class="setup-note" id="setup-note"></div>
   </div>
   <button class="btn green setup-go" id="btn-setup-go">START!</button>
@@ -300,12 +380,15 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none}
   </div>
   <div class="scoreboard">
     <div class="sb you"><div class="nm" id="m-youname">You</div><div class="pips" id="pips-you"></div></div>
-    <div class="bo3">BEST<br>OF 3</div>
+    <div class="bo3" id="m-badge">BEST<br>OF 3</div>
     <div class="sb opp"><div class="nm" id="m-oppname">Opp</div><div class="pips" id="pips-opp"></div></div>
   </div>
+  <div class="rstrip"><div class="rs" id="rs-you"></div><div class="rs" id="rs-opp"></div></div>
+  <div class="winfo" id="winfo"></div>
   <div class="arena" id="arena">
     <div class="fighter left" id="f-you"><div class="throw" id="t-you"></div><div class="fig" id="fig-you"></div></div>
     <div class="fighter right" id="f-opp"><div class="throw" id="t-opp"></div><div class="fig" id="fig-opp"></div></div>
+    <div class="ftag l" id="tag-you"><span></span></div><div class="ftag r" id="tag-opp"><span></span></div>
     <div class="bubble" id="bubble"></div>
     <div class="cmsg outline" id="cmsg"></div>
     <div class="tap-hint outline" id="taphint">Pick one! &#8595;</div>
@@ -314,6 +397,11 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none}
     <button class="pick r" data-m="0" aria-label="Rock"><span class="ic"></span><span>ROCK</span></button>
     <button class="pick p" data-m="1" aria-label="Paper"><span class="ic"></span><span>PAPER</span></button>
     <button class="pick s" data-m="2" aria-label="Scissors"><span class="ic"></span><span>SCISSORS</span></button>
+  </div>
+  <div class="watchbar" id="watchbar">
+    <button class="btn" id="btn-skip" aria-label="Skip">SKIP</button>
+    <button class="btn blue" id="btn-skipall">SKIP<br>ALL</button>
+    <button class="btn green" id="btn-wspeed" aria-label="Speed">1x</button>
   </div>
 </section>
 
@@ -325,6 +413,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none}
     <div class="msg" id="rec-msg">You got flung to the Recovery Center!</div>
     <div class="btncol">
       <button class="btn green" id="btn-retry"><svg viewBox="0 0 40 40" width="34" height="34"><path d="M32 20a12 12 0 1 1-4-9" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M30 3v10H20" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>TRY AGAIN</button>
+      <button class="btn blue small" id="btn-keep">Keep watching the rest of the tournament</button>
       <button class="btn blue small" data-act="new">New Tournament</button>
     </div>
   </div>
@@ -766,7 +855,7 @@ var TIE_LINES=['Copycat!','Same! Again!','Jinx!','Stop copying me!'];
 var MATCH_WIN_LINES=['See ya!','Bye bye!','Better luck next time!'];
 /* ===== STATE ===== */
 var BYE=-1,SIZES=[4,8,16,32,64,128,256,'all'],MODES=['random','pick','mix'];
-var ST={you:null,slots:[],pos:0,round:0,R:4,N:16,B:16,byes:0,winners:[],phase:'select',flow:0,aiMode:null,lastRound:null,opp:null,score:[0,0],cfg:{size:16,mode:'random',picks:[]}};
+var ST={you:null,slots:[],pos:0,round:0,R:4,N:16,B:16,byes:0,winners:[],phase:'select',flow:0,aiMode:null,lastRound:null,opp:null,score:[0,0],mode:'solo',teams:null,tm:null,spec:false,watch:false,lostAt:0,watchLog:[],specShown:0,fy:0,fo:0,tsize:3,cfg:{size:16,mode:'random',picks:[],gm:'solo',tcount:8,tsize:3,tcolor:3,tpat:0,tmode:'random',tpicks:[],watch:false}};
 function sizeVal(s){return s==='all'?CH.length:Math.min(s,CH.length)}
 function roundsFor(n){var R=1;while((1<<R)<n)R++;return R}
 /* when the size isn't a power of two, round 1 is a 'Play-in Round' (BYEs skip it), so the next round is a clean Round of 2^n */
@@ -781,8 +870,9 @@ function show(id){$$('.screen').forEach(function(s){s.classList.toggle('on',s.id
 var selId=null;
 function renderStats(){
   var w=Store.get('wins',0),c=Store.get('champs',0);
-  $('#stats').innerHTML='<div class="pill"><span style="width:26px;height:26px;display:inline-block">'+TROPHY+'</span>'+c+' Cup'+(c===1?'':'s')+'</div><div class="pill">'+STAR+w+' Win'+(w===1?'':'s')+'</div>';
-  $('#set-stats').textContent='Cups won: '+c+'  |  Match wins: '+w+'  |  Tournaments: '+Store.get('played',0);
+  var tc=Store.get('teamChamps',0);
+  $('#stats').innerHTML='<div class="pill"><span style="width:26px;height:26px;display:inline-block">'+TROPHY+'</span>'+c+' Cup'+(c===1?'':'s')+'</div><div class="pill">'+STAR+w+' Win'+(w===1?'':'s')+'</div>'+(tc?'<div class="pill" id="pill-team">\ud83d\udc65 '+tc+' Team Cup'+(tc===1?'':'s')+'</div>':'');
+  $('#set-stats').textContent='Cups won: '+c+'  |  Team cups: '+tc+'  |  Match wins: '+w+'  |  Tournaments: '+Store.get('played',0);
 }
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
 var GRIDS={sel:{grid:'#grid',chips:'#chips',wrap:'#gridwrap',pre:'g-',pk:false},pk:{grid:'#pgrid',chips:'#pchips',wrap:'#pgridwrap',pre:'pg-',pk:true}};
@@ -834,68 +924,114 @@ function goSelect(){
 var BACK='<svg viewBox="0 0 40 40"><path d="M25 7 L11 20 L25 33" fill="none" stroke="#2b6ea8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 var MDICON={random:'<svg viewBox="0 0 40 40" width="26" height="26"><rect x="5" y="5" width="30" height="30" rx="7" fill="#fff" stroke="#2b6ea8" stroke-width="3"/><circle cx="13" cy="13" r="3" fill="#2b6ea8"/><circle cx="20" cy="20" r="3" fill="#2b6ea8"/><circle cx="27" cy="27" r="3" fill="#2b6ea8"/><circle cx="27" cy="13" r="3" fill="#2b6ea8"/><circle cx="13" cy="27" r="3" fill="#2b6ea8"/></svg>',pick:'<svg viewBox="0 0 40 40" width="26" height="26"><circle cx="20" cy="20" r="16" fill="#2fbf4a"/><path d="M11 21l7 7 12-14" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>',mix:STAR};
 var MDTXT={random:['Random','Surprise me!'],pick:['I pick!','I choose every fighter'],mix:['Random + my picks','I pick some, the rest are random']};
+var TMTXT={random:['Random','Surprise me!'],pick:['I pick!','Pick my pals']};
+var TCOUNTS=[4,8,16,32,64,128,256,'max'],TSIZES=[2,3,4,5];
+var PAL=[['Red','#e53935'],['Orange','#ef6c00'],['Green','#2e9e44'],['Blue','#1e6fd9'],['Purple','#8e44c9'],['Pink','#d6338a']];
+var PAL12=PAL.map(function(p){return p[1]}).concat(['#00918a','#8d5a2b','#4b4fc9','#7a8f00','#546e7a','#b8860b']);
+var TPAT=['Team %','Team % Squad','Team % Crew','Team % Gang','Team Super %','Team Mega %','Team Awesome %','Team Rainbow %'];
+var GMI={solo:'<svg viewBox="0 0 40 30"><circle cx="20" cy="15" r="11" fill="#ffd54f" stroke="#1b1b2f" stroke-width="3"/><circle cx="16" cy="13" r="2" fill="#1b1b2f"/><circle cx="24" cy="13" r="2" fill="#1b1b2f"/><path d="M15 19 Q20 24 25 19" stroke="#1b1b2f" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>',team:'<svg viewBox="0 0 40 30"><circle cx="10" cy="18" r="8" fill="#ff8a65" stroke="#1b1b2f" stroke-width="2.5"/><circle cx="30" cy="18" r="8" fill="#64b5f6" stroke="#1b1b2f" stroke-width="2.5"/><circle cx="20" cy="13" r="9" fill="#ffd54f" stroke="#1b1b2f" stroke-width="2.5"/><circle cx="17" cy="12" r="1.7" fill="#1b1b2f"/><circle cx="23" cy="12" r="1.7" fill="#1b1b2f"/></svg>',
+  watch:'<svg viewBox="0 0 40 30"><path d="M2 15 Q20 -2 38 15 Q20 32 2 15Z" fill="#fff" stroke="#1b1b2f" stroke-width="3" stroke-linejoin="round"/><circle cx="20" cy="15" r="6.5" fill="#2f8cff" stroke="#1b1b2f" stroke-width="2.5"/><circle cx="20" cy="15" r="2.5" fill="#1b1b2f"/></svg>',skip:'<svg viewBox="0 0 40 30"><path d="M5 5 L19 15 L5 25Z M20 5 L34 15 L20 25Z" fill="#ffc83d" stroke="#1b1b2f" stroke-width="3" stroke-linejoin="round"/><path d="M36 5 V25" stroke="#1b1b2f" stroke-width="4" stroke-linecap="round"/></svg>',
+  again:'<svg viewBox="0 0 40 30" width="22" height="18"><path d="M31 15a11 11 0 1 1-4-8.5" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round"/><path d="M29 1v9H20" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'};
+function maxTeams(sz){return Math.floor(CH.length/sz)}
+function tcountEff(c){var m=maxTeams(c.tsize);return c.tcount==='max'?m:Math.min(c.tcount,m)}
 function loadCfg(){
-  var c=Store.get('setup',null),size=16,mode='random';
-  if(c&&SIZES.indexOf(c.size)>=0)size=c.size;
-  if(c&&MODES.indexOf(c.mode)>=0)mode=c.mode;
+  var c=Store.get('setup',null)||{},size=16,mode='random',keep=ST.cfg||{};
+  if(SIZES.indexOf(c.size)>=0)size=c.size;
+  if(MODES.indexOf(c.mode)>=0)mode=c.mode;
   if(size==='all')mode='random';
-  ST.cfg={size:size,mode:mode,picks:ST.cfg.picks||[]};
+  ST.cfg={size:size,mode:mode,picks:keep.picks||[],gm:c.gm==='team'?'team':'solo',
+    tcount:TCOUNTS.indexOf(c.tcount)>=0?c.tcount:8,tsize:TSIZES.indexOf(c.tsize)>=0?c.tsize:3,
+    tcolor:(c.tcolor>=0&&c.tcolor<PAL.length)?c.tcolor:3,tpat:(c.tpat>=0&&c.tpat<TPAT.length)?c.tpat:0,
+    tmode:c.tmode==='pick'?'pick':'random',tpicks:keep.tpicks||[],watch:Store.get('watch',false)===true};
 }
-function saveCfg(){Store.set('setup',{size:ST.cfg.size,mode:ST.cfg.mode})}
+function saveCfg(){var c=ST.cfg;Store.set('setup',{size:c.size,mode:c.mode,gm:c.gm,tcount:c.tcount,tsize:c.tsize,tcolor:c.tcolor,tpat:c.tpat,tmode:c.tmode});Store.set('watch',!!c.watch)}
 function goSetup(youId){
-  ST.flow++;if(youId!==undefined&&youId!==null){if(ST.you!==youId)ST.cfg.picks=[];ST.you=youId}
+  ST.flow++;if(youId!==undefined&&youId!==null){if(ST.you!==youId){ST.cfg.picks=[];ST.cfg.tpicks=[]}ST.you=youId}
   ST.phase='setup';loadCfg();renderSetup();show('s-setup');$('#setup-body').scrollTop=0;
 }
+function myTeamName(){return TPAT[ST.cfg.tpat].replace('%',CH[ST.you].n)}
 function renderSetup(){
-  var c=ST.cfg,N=sizeVal(c.size),all=c.size==='all';
-  $('#setup-you').innerHTML='<div class="av">'+charSVG(ST.you,'happy','cheer')+'</div><span>'+esc(CH[ST.you].n)+'</span>';
-  var h='';
-  SIZES.forEach(function(z){
-    if(z==='all')h+='<button class="opt sz wide'+(c.size==='all'?' on':'')+'" data-size="all">Everyone<small>all '+CH.length+' fighters</small></button>';
-    else h+='<button class="opt sz'+(c.size===z?' on':'')+'" data-size="'+z+'">'+z+'</button>';
+  var c=ST.cfg,team=c.gm==='team',h,N,R,by,all=c.size==='all';
+  $('#setup-you').innerHTML='<div class="av">'+charSVG(ST.you,'happy','cheer')+'</div><span>'+esc(CH[ST.you].n)+(team?' is the captain':'')+'</span>';
+  $('#gmgrid').innerHTML=['solo','team'].map(function(g){return '<button class="opt sm'+(c.gm===g?' on':'')+'" data-gm="'+g+'">'+GMI[g]+(g==='solo'?'Solo':'Teams')+'</button>'}).join('');
+  $('#h-size').textContent=team?'How many teams?':'How many fighters?';
+  h='';
+  (team?TCOUNTS:SIZES).forEach(function(z){
+    var on=team?c.tcount===z:c.size===z;
+    if(z==='all'||z==='max')h+='<button class="opt sz ev'+(on?' on':'')+'" data-size="'+z+'">'+(team?'Most':'Everyone')+'<small>'+(team?'all fit':CH.length)+'</small></button>';
+    else h+='<button class="opt sz'+(on?' on':'')+'" data-size="'+z+'">'+z+'</button>';
   });
   $('#szgrid').innerHTML=h;
-  var R=roundsFor(N),B=1<<R,by=B-N;
-  $('#setup-sum').textContent=N+' fighters \u2022 '+R+' round'+(R===1?'':'s')+(by?' \u2022 has BYEs (free wins)':'');
+  if(team){
+    var sz=c.tsize,mx=maxTeams(sz),eff=tcountEff(c),clamped=c.tcount!=='max'&&c.tcount>mx;
+    R=roundsFor(eff);by=(1<<R)-eff;
+    $('#setup-sum').textContent=(clamped?'Too many for '+sz+' each! Using '+eff+' teams. ':'')+eff+' teams \u00d7 '+sz+' = '+eff*sz+' fighters \u2022 '+R+' round'+(R===1?'':'s')+(by?' \u2022 has BYEs':'');
+  }else{
+    N=sizeVal(c.size);R=roundsFor(N);by=(1<<R)-N;
+    $('#setup-sum').textContent=N+' fighters \u2022 '+R+' round'+(R===1?'':'s')+(by?' \u2022 has BYEs (free wins)':'');
+  }
+  $('#team-sec').style.display=team?'':'none';
+  $('#tsgrid').innerHTML=TSIZES.map(function(z){return '<button class="opt tsz'+(c.tsize===z?' on':'')+'" data-tsize="'+z+'">'+z+'</button>'}).join('');
+  $('#h-md').textContent=team?'Who joins your team?':'Who do you fight?';
+  $('#mdcol').className='mdcol'+(team?' two':'');
   h='';
-  MODES.forEach(function(m){
+  if(team){
+    ['random','pick'].forEach(function(m){h+='<button class="opt md'+(c.tmode===m?' on':'')+'" data-tmode="'+m+'"><span class="mi">'+MDICON[m]+'</span><span>'+TMTXT[m][0]+'<small>'+TMTXT[m][1]+'</small></span></button>'});
+  }else MODES.forEach(function(m){
     var dis=all&&m!=='random';
     h+='<button class="opt md'+(c.mode===m?' on':'')+'" data-mode="'+m+'"'+(dis?' disabled':'')+'><span class="mi">'+MDICON[m]+'</span><span>'+MDTXT[m][0]+'<small>'+(dis&&m==='pick'?'Everyone fights, no picking!':MDTXT[m][1])+'</small></span></button>';
   });
   $('#mdcol').innerHTML=h;
+  $('#tn-sec').style.display=team?'':'none';
+  if(team)$('#tn-sec').innerHTML='<div class="tnwrap"><button class="opt tn" id="tn-btn" aria-label="Change team name"><span class="tn-chip" style="background:'+PAL[c.tcolor][1]+';color:#fff;text-shadow:0 1px 0 rgba(0,0,0,.4)">'+esc(myTeamName())+'</span>'+GMI.again.replace('#fff','#2b6ea8').replace('#fff','#2b6ea8')+'</button><div class="swrow">'+PAL.map(function(p,i){return '<button class="sw'+(i===c.tcolor?' on':'')+'" data-sw="'+i+'" style="--c:'+p[1]+'" aria-label="'+p[0]+'"></button>'}).join('')+'</div></div>';
+  $('#wgrid').innerHTML=[[0,'skip','Skip'],[1,'watch','Watch']].map(function(w){return '<button class="opt sm'+((c.watch?1:0)===w[0]?' on':'')+'" data-watch="'+w[0]+'">'+GMI[w[1]]+w[2]+'</button>'}).join('');
   $('#setup-note').textContent='';
-  $('#btn-setup-go').textContent=(c.mode==='random'||all)?'START!':'PICK FIGHTERS!';
+  $('#btn-setup-go').textContent=team?(c.tmode==='pick'?'PICK TEAMMATES!':'START!'):((c.mode==='random'||all)?'START!':'PICK FIGHTERS!');
 }
-$('#szgrid').addEventListener('click',function(e){
-  var b=e.target.closest('.opt');if(!b)return;
-  var v=b.getAttribute('data-size');ST.cfg.size=v==='all'?'all':+v;
-  if(v==='all')ST.cfg.mode='random';
-  if(ST.cfg.picks.length>sizeVal(ST.cfg.size)-1)ST.cfg.picks=ST.cfg.picks.slice(0,sizeVal(ST.cfg.size)-1);
+$('#setup-body').addEventListener('click',function(e){
+  var t=e.target,b,c=ST.cfg,v;
+  if((b=t.closest('[data-gm]')))c.gm=b.getAttribute('data-gm');
+  else if((b=t.closest('.opt.sz'))){
+    v=b.getAttribute('data-size');
+    if(c.gm==='team')c.tcount=v==='max'?'max':+v;
+    else{c.size=v==='all'?'all':+v;if(v==='all')c.mode='random';if(c.picks.length>sizeVal(c.size)-1)c.picks=c.picks.slice(0,sizeVal(c.size)-1)}
+  }
+  else if((b=t.closest('[data-tsize]'))){c.tsize=+b.getAttribute('data-tsize');if(c.tpicks.length>c.tsize-1)c.tpicks=c.tpicks.slice(0,c.tsize-1)}
+  else if((b=t.closest('.opt.md'))){if(b.disabled)return;if(b.hasAttribute('data-tmode'))c.tmode=b.getAttribute('data-tmode');else c.mode=b.getAttribute('data-mode')}
+  else if(t.closest('#tn-btn'))c.tpat=(c.tpat+1)%TPAT.length;
+  else if((b=t.closest('.sw')))c.tcolor=+b.getAttribute('data-sw');
+  else if((b=t.closest('[data-watch]')))c.watch=b.getAttribute('data-watch')==='1';
+  else return;
   saveCfg();Snd.play('select');renderSetup();
 });
-$('#mdcol').addEventListener('click',function(e){
-  var b=e.target.closest('.opt');if(!b||b.disabled)return;
-  ST.cfg.mode=b.getAttribute('data-mode');saveCfg();Snd.play('select');renderSetup();
-});
 $('#btn-setup-back').addEventListener('click',function(){Snd.play('tap');goSelect()});
+function startFromCfg(){
+  var c=ST.cfg;
+  if(c.gm==='team')startTeamTournament(ST.you,tcountEff(c),c.tsize,c.tmode==='pick'?c.tpicks.slice():[],c.tcolor,c.tpat);
+  else startTournament(ST.you,c.size,c.mode,c.picks.slice());
+}
 $('#btn-setup-go').addEventListener('click',function(){
   Snd.play('tap');var c=ST.cfg;
-  if(c.mode==='random'||c.size==='all')startTournament(ST.you,c.size,'random',[]);
+  if(c.gm==='team'){if(c.tmode==='pick')goPick();else startFromCfg()}
+  else if(c.mode==='random'||c.size==='all')startFromCfg();
   else goPick();
 });
 
-/* ---------- opponent picker (same grid as character select, multi-select) ---------- */
+/* ---------- picker (opponents in Solo, teammates in Teams): same grid as character select, multi-select ---------- */
 var pkBuiltFor=null;
-function pkLimit(){return sizeVal(ST.cfg.size)-1}
+function pkTeam(){return ST.cfg.gm==='team'}
+function pkGet(){return pkTeam()?ST.cfg.tpicks:ST.cfg.picks}
+function pkSet(a){if(pkTeam())ST.cfg.tpicks=a;else ST.cfg.picks=a}
+function pkLimit(){return pkTeam()?ST.cfg.tsize-1:sizeVal(ST.cfg.size)-1}
 function goPick(){
   ST.flow++;ST.phase='pick';
   var lim=pkLimit(),ok={};CH.forEach(function(c){ok[c.id]=c.id!==ST.you});
-  ST.cfg.picks=ST.cfg.picks.filter(function(i){return ok[i]}).slice(0,lim);
+  pkSet(pkGet().filter(function(i){return ok[i]}).slice(0,lim));
   if(pkBuiltFor!==ST.you){buildGridInto(GRIDS.pk);pkBuiltFor=ST.you}
   show('s-pick');$('#pgridwrap').scrollTop=0;pkRender();
 }
 function pkRender(){
-  var P=ST.cfg.picks,lim=pkLimit(),set={};P.forEach(function(i){set[i]=1});
+  var P=pkGet(),lim=pkLimit(),set={};P.forEach(function(i){set[i]=1});
   $$('#pgrid .card').forEach(function(el){el.classList.toggle('picked',!!set[el.getAttribute('data-id')])});
   GROUPS.forEach(function(g){
     var head=$('#pg-'+g[0]);if(!head)return;var b=head.querySelector('.gadd');if(!b)return;
@@ -903,77 +1039,106 @@ function pkRender(){
     var allIn=ids.every(function(i){return set[i]});
     b.textContent=allIn?'Remove all':'Add all';b.classList.toggle('rm',allIn);
   });
-  var t=$('#pick-title'),full=P.length>=lim,mix=ST.cfg.mode==='mix';
+  var t=$('#pick-title'),full=P.length>=lim,team=pkTeam(),mix=!team&&ST.cfg.mode==='mix';
   t.classList.toggle('full',full);
-  t.innerHTML='<div class="big">Picked '+P.length+' of '+lim+'</div><div class="sub">'+(full?'All set! Press START!':mix?'The rest will be random':'Tap fighters to pick them!')+'</div>';
+  t.innerHTML='<div class="big">Picked '+P.length+' of '+lim+'</div><div class="sub">'+(full?'All set! Press START!':team?'Tap friends to join your team!':mix?'The rest will be random':'Tap fighters to pick them!')+'</div>';
   var go=$('#btn-pstart'),can=mix||full;
   go.disabled=!can;go.textContent=can?'START!':'Pick '+(lim-P.length)+' more';
   $('#btn-pfill').disabled=full;
 }
 function pkDeny(){Snd.play('tie');var t=$('#pick-title');t.classList.remove('shake');void t.offsetWidth;t.classList.add('shake')}
 function pkAdd(ids){
-  var set={},lim=pkLimit(),added=0;ST.cfg.picks.forEach(function(i){set[i]=1});
-  ids.forEach(function(i){if(!set[i]&&ST.cfg.picks.length<lim){ST.cfg.picks.push(i);set[i]=1;added++}});
+  var set={},lim=pkLimit(),added=0,P=pkGet();P.forEach(function(i){set[i]=1});
+  ids.forEach(function(i){if(!set[i]&&P.length<lim){P.push(i);set[i]=1;added++}});
   return added;
 }
 $('#pgrid').addEventListener('click',function(e){
   var ga=e.target.closest('.gadd');
   if(ga){
     var g=ga.getAttribute('data-ga'),ids=CH.filter(function(c){return c.g===g&&c.id!==ST.you}).map(function(c){return c.id});
-    var allIn=ids.every(function(i){return ST.cfg.picks.indexOf(i)>=0});
-    if(allIn){ST.cfg.picks=ST.cfg.picks.filter(function(i){return ids.indexOf(i)<0});Snd.play('tap')}
+    var allIn=ids.every(function(i){return pkGet().indexOf(i)>=0});
+    if(allIn){pkSet(pkGet().filter(function(i){return ids.indexOf(i)<0}));Snd.play('tap')}
     else if(pkAdd(ids))Snd.play('select');else pkDeny();
     pkRender();return;
   }
   var el=e.target.closest('.card');if(!el)return;
-  var id=+el.getAttribute('data-id'),ix=ST.cfg.picks.indexOf(id);
-  if(ix>=0){ST.cfg.picks.splice(ix,1);Snd.play('tap')}
-  else if(ST.cfg.picks.length<pkLimit()){ST.cfg.picks.push(id);Snd.play('select')}
+  var id=+el.getAttribute('data-id'),P=pkGet(),ix=P.indexOf(id);
+  if(ix>=0){P.splice(ix,1);Snd.play('tap')}
+  else if(P.length<pkLimit()){P.push(id);Snd.play('select')}
   else pkDeny();
   pkRender();
 });
-$('#btn-pclear').addEventListener('click',function(){Snd.play('tap');ST.cfg.picks=[];pkRender()});
+$('#btn-pclear').addEventListener('click',function(){Snd.play('tap');pkSet([]);pkRender()});
 $('#btn-pfill').addEventListener('click',function(){
-  Snd.play('select');var set={};ST.cfg.picks.forEach(function(i){set[i]=1});
+  Snd.play('select');var set={};pkGet().forEach(function(i){set[i]=1});
   pkAdd(shuffle(CH.map(function(c){return c.id}).filter(function(i){return i!==ST.you&&!set[i]})));
   pkRender();
 });
 $('#btn-pick-back').addEventListener('click',function(){Snd.play('tap');goSetup()});
 $('#btn-pstart').addEventListener('click',function(){
-  if(this.disabled)return;Snd.play('tap');var c=ST.cfg;
-  startTournament(ST.you,c.size,c.mode,c.picks.slice());
+  if(this.disabled)return;Snd.play('tap');startFromCfg();
 });
 
 /* ---------- tournament ---------- */
-/* Any size N >= 2 works: the bracket is the next power of two (B) and the B-N empty spots are BYEs in round 1.
-   Every BYE sits next to a real fighter (so its partner gets a free win) and you never draw a BYE yourself. */
-function startTournament(youId,size,mode,picks){
-  ST.flow++;ST.you=youId;
-  var N=sizeVal(size),others=CH.map(function(c){return c.id}).filter(function(i){return i!==youId});
-  var chosen=(mode==='random'||size==='all')?[]:(picks||[]).filter(function(i){return i!==youId}).filter(function(i,k,a){return a.indexOf(i)===k}).slice(0,N-1);
-  var set={};chosen.forEach(function(i){set[i]=1});
-  var rest=shuffle(others.filter(function(i){return !set[i]})).slice(0,N-1-chosen.length);
-  var opps=shuffle(chosen.concat(rest));
-  var R=roundsFor(N),B=1<<R,half=B/2,byes=B-N,slots=new Array(B),i,m;
+/* An 'entrant' is a character id in Solo and a team index in Teams (team 0 is always yours). BYE = -1.
+   Any N >= 2 works: the bracket is the next power of two (B) and the B-N empty spots are BYEs in round 1.
+   Every BYE sits next to a real entrant (so its partner gets a free win) and you never draw a BYE yourself. */
+function ME(){return ST.mode==='team'?0:ST.you}
+function faceOf(id){return ST.mode==='team'?ST.teams[id].members[0]:id}
+function nameOf(id){return ST.mode==='team'?ST.teams[id].name:CH[id].n}
+function colorOf(id){return ST.mode==='team'?ST.teams[id].color:'#999'}
+function noun(n){return ST.mode==='team'?(n===1?'team':'teams'):(n===1?'fighter':'fighters')}
+function launch(me,opps){
+  var N=opps.length+1,R=roundsFor(N),B=1<<R,half=B/2,byes=B-N,slots=new Array(B),i,m;
   var pairs=shuffle(Array.apply(null,Array(half)).map(function(_,k){return k}));
   for(i=0;i<byes;i++)slots[2*pairs[i]+rnd(2)]=BYE;
   var full=pairs.slice(byes),yp=full[rnd(full.length)];
-  ST.pos=2*yp+rnd(2);slots[ST.pos]=youId;
+  ST.pos=2*yp+rnd(2);slots[ST.pos]=me;
   var k=0;for(i=0;i<B;i++)if(slots[i]===undefined)slots[i]=opps[k++];
   ST.slots=slots;ST.N=N;ST.B=B;ST.R=R;ST.byes=byes;ST.round=0;ST.lastRound=null;
   ST.winners=[];for(i=0;i<R;i++)ST.winners.push(new Array(B>>(i+1)));
   for(m=0;m<half;m++){var a=slots[2*m],b=slots[2*m+1];if(a===BYE&&b!==BYE)ST.winners[0][m]=b;else if(b===BYE&&a!==BYE)ST.winners[0][m]=a}
+  ST.spec=false;ST.specShown=0;ST.lostAt=0;ST.tm=null;ST.watchLog=[];ST.watch=!!ST.cfg.watch;SP.all=false;SP.skip=false;
   Store.inc('played');
   goBracket();
 }
-function simulateRound(r){
-  var e=entrants(r),n=e.length/2,me=ST.pos>>(r+1);
-  for(var m=0;m<n;m++){
-    var a=e[2*m],b=e[2*m+1];
-    ST.winners[r][m]=(m===me)?ST.you:(a===BYE?b:b===BYE?a:(Math.random()<.5?a:b));
+function startTournament(youId,size,mode,picks){
+  ST.flow++;ST.you=youId;ST.mode='solo';ST.teams=null;
+  var N=sizeVal(size),others=CH.map(function(c){return c.id}).filter(function(i){return i!==youId});
+  var chosen=(mode==='random'||size==='all')?[]:(picks||[]).filter(function(i){return i!==youId}).filter(function(i,k,a){return a.indexOf(i)===k}).slice(0,N-1);
+  var set={};chosen.forEach(function(i){set[i]=1});
+  var rest=shuffle(others.filter(function(i){return !set[i]})).slice(0,N-1-chosen.length);
+  launch(youId,shuffle(chosen.concat(rest)));
+}
+/* Teams: everyone is on at most one team (no repeats while the roster is big enough; counts are clamped so it always is) */
+function buildTeams(youId,count,size,picks,color,pat){
+  var ids=CH.map(function(c){return c.id}).filter(function(i){return i!==youId});
+  var chosen=(picks||[]).filter(function(i){return i!==youId}).filter(function(i,k,a){return a.indexOf(i)===k}).slice(0,size-1);
+  var set={};chosen.forEach(function(i){set[i]=1});
+  var rest=shuffle(ids.filter(function(i){return !set[i]})),mine=[youId].concat(chosen),t,k;
+  while(mine.length<size)mine.push(rest.shift());
+  var mc=PAL[color][1],teams=[{name:TPAT[pat].replace('%',CH[youId].n),color:mc,members:mine}];
+  var cols=shuffle(PAL12.filter(function(c){return c!==mc}));
+  for(t=1;t<count;t++){
+    var mem=[];for(k=0;k<size;k++)mem.push(rest.length?rest.shift():pick(ids));
+    teams.push({name:pick(['Team %','Team %','Team %','Team % Squad','Team % Crew','Team % Gang','Team Super %','Team Mega %']).replace('%',CH[mem[0]].n),color:cols[(t-1)%cols.length],members:mem});
   }
+  return teams;
+}
+function startTeamTournament(youId,count,size,picks,color,pat){
+  ST.flow++;ST.you=youId;ST.mode='team';ST.tsize=size;
+  count=Math.max(2,Math.min(count,maxTeams(size)));
+  ST.teams=buildTeams(youId,count,size,picks,color===undefined?3:color,pat||0);
+  var opps=shuffle(ST.teams.map(function(_,i){return i}).slice(1));
+  launch(0,opps);
 }
 function aliveCount(r){var n=0,e=entrants(r);for(var i=0;i<e.length;i++)if(e[i]!==BYE&&e[i]!==undefined)n++;return n}
+function msl(e){var t=ST.teams[e],h='<div class="msl">';t.members.forEach(function(id){h+='<i style="--tc:'+t.color+'"><b>'+charSVG(id,'idle','idle',false)+'</b></i>'});return h+'</div>'}
+function sideHTML(e,left){
+  var team=ST.mode==='team';
+  return '<div class="side"><div class="av">'+charSVG(faceOf(e),left?'happy':'taunt',left?'cheer':'pump',!left)+'</div>'+
+    (team?'<div class="nm"><span class="tn-chip" style="background:'+colorOf(e)+';color:#fff;text-shadow:0 1px 0 rgba(0,0,0,.4)">'+esc(nameOf(e))+'</span></div>'+msl(e):'<div class="nm">'+esc(nameOf(e))+(left?' (You)':'')+'</div>')+'</div>';
+}
 function goBracket(){
   ST.flow++;ST.phase='bracket';show('s-bracket');
   var r=ST.round,R=ST.R;
@@ -981,53 +1146,58 @@ function goBracket(){
   if(R<=4)$('#steps').innerHTML=Array.apply(null,Array(R)).map(function(_,i){return '<div class="step '+(i<r?'done':i===r?'now':'')+'">'+stageShort(i,R)+'</div>'}).join('');
   else $('#steps').innerHTML='<div class="step now big">Round '+(r+1)+' of '+R+'</div><div class="step big">'+aliveCount(r)+' of '+ST.N+' left</div>';
   ST.opp=oppFor(r);
-  $('#nextpanel').innerHTML='<div class="vsrow"><div class="side"><div class="av">'+charSVG(ST.you,'happy','cheer')+'</div><div class="nm">'+CH[ST.you].n+' (You)</div></div><div class="vs outline" style="color:#fff">VS</div><div class="side"><div class="av">'+charSVG(ST.opp,'taunt','pump',true)+'</div><div class="nm">'+CH[ST.opp].n+'</div></div></div><button class="btn green" id="btn-fight">FIGHT!</button>';
+  $('#nextpanel').innerHTML='<div class="vsrow">'+sideHTML(ME(),true)+'<div class="vs outline" style="color:#fff">VS</div>'+sideHTML(ST.opp,false)+'</div><button class="btn green" id="btn-fight">FIGHT!</button>';
   $('#btn-fight').addEventListener('click',function(){Snd.play('tap');startMatch()});
   drawBracket();requestAnimationFrame(drawBracket);
 }
 function avNode(o){
-  var cls='bav',inner='?';
+  var cls='bav',inner='?',st='',cap='';
   if(o.id===undefined)cls+=' q';
   else if(o.id===BYE){cls+=' bye';inner='BYE'}
   else{
-    inner='<div class="inner">'+charSVG(o.id,o.lost?'sad':'idle','idle',o.flip)+'</div>';
-    if(o.lost)cls+=' out';if(o.id===ST.you)cls+=' you';if(o.next)cls+=' next';if(o.pop)cls+=' pop';
+    inner='<div class="inner">'+charSVG(faceOf(o.id),o.lost?'sad':'idle','idle',o.flip)+'</div>';
+    if(o.lost)cls+=' out';if(o.id===ME())cls+=' you';if(o.next)cls+=' next';if(o.pop)cls+=' pop';
+    if(ST.mode==='team'){
+      cls+=' tm';st='border-color:'+colorOf(o.id)+';';
+      var big=ST.R>3,tn=nameOf(o.id);
+      cap='<div class="tcap'+(o.lost?' out':'')+(big?'':' w2')+'" data-team="'+o.id+'" title="'+esc(tn)+'" style="left:'+o.x+'px;top:'+(o.y+o.av/2+1)+'px;max-width:'+Math.round(Math.max(44,o.cw||60))+'px;background:'+colorOf(o.id)+';color:#fff">'+esc(big?tn.replace(/^Team /,''):tn)+'</div>';
+    }
   }
-  return '<div class="'+cls+'" style="left:'+o.x+'px;top:'+o.y+'px;width:'+o.av+'px;height:'+o.av+'px;font-size:'+(o.av*(o.id===BYE?.3:.5))+'px">'+inner+'</div>';
+  return '<div class="'+cls+'" style="'+st+'left:'+o.x+'px;top:'+o.y+'px;width:'+o.av+'px;height:'+o.av+'px;font-size:'+(o.av*(o.id===BYE?.3:.5))+'px">'+inner+'</div>'+cap;
 }
 function elbow(p,q,isYou,adv){var mx=(p.x+q.x)/2;return '<path d="M'+p.x+' '+p.y+' H'+mx+' V'+q.y+' H'+q.x+'" fill="none" stroke="'+(isYou?'#ffc83d':adv?'#fff':'rgba(27,27,47,.28)')+'" stroke-width="'+(adv?4:2.5)+'" stroke-linejoin="round"/>'}
 function drawBracket(){
   var box=$('#bracket');if(!box.offsetParent)return;
-  var W=box.clientWidth,H=box.clientHeight,pad=6,R=ST.R,B=ST.B;
+  var W=box.clientWidth,H=box.clientHeight,pad=6,R=ST.R,B=ST.B,team=ST.mode==='team';
   if(R>4){drawPath(box,W,H,pad);return}
   var cols=2*R-1,colW=(W-pad*2)/cols,rowH=(H-pad*2)/(B/2);
-  var av=Math.max(22,Math.min(colW*.84,rowH*.84,64));
+  var av=team?Math.max(20,Math.min(colW*.8,rowH*.6,56)):Math.max(22,Math.min(colW*.84,rowH*.84,64));
   function colX(c){return pad+colW*(c+.5)}
   function pos(r,i){
     var cnt=B>>r,half=cnt/2,left=i<half,j=left?i:i-half;
-    if(r===R-1)return{x:colX(R-1),y:H/2+(left?-1:1)*Math.max(av*1.25,H*.17)};
+    if(r===R-1)return{x:colX(R-1),y:H/2+(left?-1:1)*Math.max(team?av*1.5:av*1.25,H*(team?.2:.17))};
     return{x:colX(left?r:2*(R-1)-r),y:pad+(H-pad*2)*(j+.5)/half};
   }
-  var lines='',nodes='',curR=ST.round,nextOpp=ST.opp;
+  var lines='',nodes='',curR=ST.round,nextOpp=ST.opp,me=ME();
   for(var r=0;r<R;r++){
     var e=entrants(r),cnt=B>>r;
     for(var i=0;i<cnt;i++){
       var p=pos(r,i),id=e[i],win=ST.winners[r][i>>1];
-      var adv=(id!==undefined&&win===id),isYou=adv&&id===ST.you;
+      var adv=(id!==undefined&&win===id),isYou=adv&&id===me;
       if(r<R-1)lines+=elbow(p,pos(r+1,i>>1),isYou,adv);
       else lines+='<path d="M'+p.x+' '+p.y+' V'+H/2+'" stroke="'+(isYou?'#ffc83d':'rgba(27,27,47,.28)')+'" stroke-width="3"/>';
-      nodes+=avNode({id:id,x:p.x,y:p.y,av:av,flip:i>=cnt/2,lost:id!==undefined&&id!==BYE&&win!==undefined&&win!==id,next:r===curR&&id===nextOpp,pop:r===curR&&id===ST.you&&ST.lastRound===r-1});
+      nodes+=avNode({id:id,x:p.x,y:p.y,av:av,cw:colW-2,flip:i>=cnt/2,lost:id!==undefined&&id!==BYE&&win!==undefined&&win!==id,next:r===curR&&id===nextOpp,pop:r===curR&&id===me&&ST.lastRound===r-1});
     }
   }
   var ts=Math.min(av*1.3,colW*1.15);
   nodes+='<div class="champ-slot" style="left:'+colX(R-1)+'px;top:'+H/2+'px;width:'+ts+'px;height:'+ts+'px">'+TROPHY+'</div>';
   box.innerHTML='<svg class="lines" viewBox="0 0 '+W+' '+H+'">'+lines+'</svg>'+nodes;
 }
-/* big brackets: draw only the 8 (or fewer) fighters around you and where the winner goes next */
+/* big brackets: draw only the 8 (or fewer) entrants around you and where the winner goes next */
 function drawPath(box,W,H,pad){
-  var r=ST.round,R=ST.R,d=Math.min(3,R-r),w=1<<d,s=((ST.pos>>r)>>d)<<d;
+  var r=ST.round,R=ST.R,d=Math.min(3,R-r),w=1<<d,s=((ST.pos>>r)>>d)<<d,team=ST.mode==='team',me=ME();
   var capH=26,Hh=H-pad*2-capH,colW=(W-pad*2)/(d+1),rowH=Hh/w;
-  var av=Math.max(24,Math.min(colW*.7,rowH*.84,62));
+  var av=team?Math.max(22,Math.min(colW*.7,rowH*.56,56)):Math.max(24,Math.min(colW*.7,rowH*.84,62));
   function P(c,j){return{x:pad+colW*(c+.5),y:pad+Hh*(j+.5)/(w>>c)}}
   var lines='',nodes='',c,j;
   for(c=0;c<=d;c++){
@@ -1036,8 +1206,8 @@ function drawPath(box,W,H,pad){
       var idx=(s>>c)+j,p=P(c,j),id=e?e[idx]:undefined;
       if(c===d&&r+d===R){nodes+='<div class="champ-slot" style="left:'+p.x+'px;top:'+p.y+'px;width:'+av*1.2+'px;height:'+av*1.2+'px">'+TROPHY+'</div>';continue}
       var win=(r+c<R)?ST.winners[r+c][idx>>1]:undefined,adv=(id!==undefined&&win===id);
-      if(c<d)lines+=elbow(p,P(c+1,j>>1),adv&&id===ST.you,adv);
-      nodes+=avNode({id:id,x:p.x,y:p.y,av:av,flip:false,lost:id!==undefined&&id!==BYE&&win!==undefined&&win!==id,next:c===0&&id===ST.opp,pop:c===0&&id===ST.you&&ST.lastRound===r-1});
+      if(c<d)lines+=elbow(p,P(c+1,j>>1),adv&&id===me,adv);
+      nodes+=avNode({id:id,x:p.x,y:p.y,av:av,cw:colW-4,flip:false,lost:id!==undefined&&id!==BYE&&win!==undefined&&win!==id,next:c===0&&id===ST.opp,pop:c===0&&id===me&&ST.lastRound===r-1});
     }
   }
   var tp=P(d,0);
@@ -1050,22 +1220,59 @@ window.addEventListener('resize',function(){if(ST.phase==='bracket')drawBracket(
 var bubbleT=null;
 function say(text,ms){var b=$('#bubble');b.textContent=text;b.classList.add('show');clearTimeout(bubbleT);bubbleT=setTimeout(function(){b.classList.remove('show')},(ms||2200)*Math.max(SPEED,.5))}
 function hush(){clearTimeout(bubbleT);$('#bubble').classList.remove('show')}
-function setFig(who,ex,pose,cls){var el=$('#fig-'+who);el.className='fig'+(cls?' '+cls:'');el.innerHTML=charSVG(who==='you'?ST.you:ST.opp,ex,pose,who==='opp')}
-function renderPips(){['you','opp'].forEach(function(w,k){var h='';for(var i=0;i<2;i++)h+='<div class="pip'+(i<ST.score[k]?' on':'')+'"></div>';$('#pips-'+w).innerHTML=h})}
+function setFig(who,ex,pose,cls){var el=$('#fig-'+who),id=who==='you'?ST.fy:ST.fo;el.className='fig'+(cls?' '+cls:'');el.innerHTML=charSVG(id,ex,pose,who==='opp');if(ST.tm)$('#tag-'+who+' span').textContent=CH[id].n}
+function renderPips(){
+  var T=ST.tm;
+  ['you','opp'].forEach(function(w,k){
+    var h='',n=T?T.n:($('#s-match').classList.contains('watch')?1:2),sc=T?(k?T.sb:T.sa):ST.score[k],el=$('#pips-'+w);
+    for(var i=0;i<n;i++)h+='<div class="pip'+(i<sc?' on':'')+'"></div>';
+    el.innerHTML=h;el.classList.toggle('small',!!T);
+  });
+}
+function renderStrip(){
+  var T=ST.tm;
+  [['you',T.A,1],['opp',T.B,-1]].forEach(function(sd){
+    var tm=ST.teams[sd[1]],h='';
+    tm.members.forEach(function(id,i){
+      var r=T.res[i],cls='mav',mine=r===undefined?0:r*sd[2];
+      if(T.tb&&i===0)cls+=' now';else if(r!==undefined)cls+=mine>0?' won':' lost';else if(i===T.k&&!T.tb)cls+=' now';
+      h+='<div class="'+cls+'" style="--tc:'+tm.color+'"><div class="mf"><div class="inner">'+charSVG(id,mine<0?'sad':'idle','idle',sd[2]<0)+'</div></div></div>';
+    });
+    $('#rs-'+sd[0]).innerHTML=h;
+  });
+}
+function hud(){
+  var T=ST.tm,watch=$('#s-match').classList.contains('watch'),yn,on,badge;
+  if(T){
+    var A=ST.teams[T.A],B=ST.teams[T.B];
+    yn=A.name;on=B.name;
+    $('.sb.you').style.setProperty('--tc',A.color);$('.sb.opp').style.setProperty('--tc',B.color);
+    badge=T.tb?'TIE-<br>BREAKER':'FIGHT '+(T.k+1)+'<br>OF '+T.n;
+    renderStrip();
+  }else{yn=CH[ST.fy].n+(watch?'':' (You)');on=CH[ST.fo].n;badge=watch?'QUICK<br>FIGHT':'BEST<br>OF 3'}
+  $('#m-youname').textContent=yn;$('#m-oppname').textContent=on;$('#m-badge').innerHTML=badge;
+  $('.sb.you').classList.toggle('tmc',!!T);$('.sb.opp').classList.toggle('tmc',!!T);
+  renderPips();
+}
 function setPicks(on){$$('.pick').forEach(function(b){b.disabled=!on;b.classList.remove('chosen')});$('#taphint').style.display=on?'':'none'}
 function clearThrows(){['you','opp'].forEach(function(w){var t=$('#t-'+w);t.className='throw';t.innerHTML=''})}
 function cmsg(big,sub){var c=$('#cmsg');c.className='cmsg outline';c.innerHTML=big?'<div class="big">'+big+'</div>'+(sub?'<div class="sub">'+sub+'</div>':''):'';if(big){void c.offsetWidth;c.classList.add('pop')}}
+function winMsg(name){var L=name.length+6;return '<span style="font-size:'+(L>28?'.42em':L>20?'.55em':L>15?'.7em':'1em')+'">'+esc(name)+' wins!</span>'}
+function taunt(id){var sp=SPECIAL[CH[id].n]||(CH[id].t?[CH[id].t]:null);say(sp&&Math.random()<.8?pick(sp):pick(TAUNTS),2600)}
+function readyPick(){clearThrows();cmsg('');setFig('you','idle','idle','bob');setFig('opp','taunt','pump','bob');setPicks(true);ST.phase='await-pick'}
+function mkTm(A,B){return{A:A,B:B,n:ST.tsize,k:0,res:[],sa:0,sb:0,tb:false,tbRes:0}}
+function tmPair(){var T=ST.tm,k=T.tb?0:T.k;ST.fy=ST.teams[T.A].members[k];ST.fo=ST.teams[T.B].members[k]}
 function startMatch(){
   ++ST.flow;ST.score=[0,0];ST.opp=oppFor(ST.round);
+  var s=$('#s-match'),team=ST.mode==='team';
+  s.classList.remove('watch');s.classList.toggle('team',team);
   show('s-match');
   $('#m-round').textContent=stageName(ST.round,ST.R);
-  $('#m-youname').textContent=CH[ST.you].n+' (You)';
-  $('#m-oppname').textContent=CH[ST.opp].n;
-  renderPips();clearThrows();cmsg('');
+  if(team){ST.tm=mkTm(0,ST.opp);tmPair()}else{ST.tm=null;ST.fy=ST.you;ST.fo=ST.opp}
+  hud();clearThrows();cmsg('');
   setFig('you','idle','idle','bob');setFig('opp','taunt','pump','bob');
   setPicks(true);ST.phase='await-pick';
-  var sp=SPECIAL[CH[ST.opp].n]||(CH[ST.opp].t?[CH[ST.opp].t]:null);
-  say(sp&&Math.random()<.8?pick(sp):pick(TAUNTS),2600);
+  taunt(ST.fo);
 }
 /* chance the AI 'accidentally' throws the losing move: gentle in the first 3 rounds, 0 in the final, at most 5% in the semifinal */
 function easyChance(r,R){var fromFinal=R-1-r;if(fromFinal<=0)return 0;var e=[.3,.15,.05][r]||0;return fromFinal===1?Math.min(e,.05):e}
@@ -1111,17 +1318,31 @@ async function playRound(m,my){
     say(pick(TIE_LINES),1400);
     await wait(1300);if(my!==ST.flow)return;
   }else{
-    var youWon=res>0,w=youWon?m:o,l=youWon?o:m;
-    ST.score[youWon?0:1]++;renderPips();ST.phase=youWon?'result-win':'result-lose';
+    var youWon=res>0,w=youWon?m:o,l=youWon?o:m,T=ST.tm;
+    if(T){
+      if(T.tb)T.tbRes=youWon?1:-1;else{T.res[T.k]=youWon?1:-1;if(youWon)T.sa++;else T.sb++}
+      renderStrip();
+    }else ST.score[youWon?0:1]++;
+    renderPips();ST.phase=youWon?'result-win':'result-lose';
     var sub=moveSVG(w).replace('class="csvg"','')+VERB[w+'-'+l];
     if(youWon){cmsg('YOU WIN!',sub);Snd.play('win');ty.classList.add('win');to.classList.add('lose');setFig('you','happy','cheer','bounce');setFig('opp','sad','sad','hit');say(pick(LOSE_LINES),1400)}
-    else{cmsg('<span style="font-size:'+(CH[ST.opp].n.length>18?'.45em':CH[ST.opp].n.length>9?'.7em':'1em')+'">'+CH[ST.opp].n+' wins!</span>',sub);Snd.play('lose');to.classList.add('win');ty.classList.add('lose');setFig('opp','happy','cheer','bounce');setFig('you','sad','sad','hit');say(pick(WIN_LINES),1400)}
+    else{cmsg(winMsg(CH[ST.fo].n),sub);Snd.play('lose');to.classList.add('win');ty.classList.add('lose');setFig('opp','happy','cheer','bounce');setFig('you','sad','sad','hit');say(pick(WIN_LINES),1400)}
     await wait(1500);if(my!==ST.flow)return;
+    if(T){tmNext(my);return}
     if(ST.score[0]>=2||ST.score[1]>=2){endMatch(ST.score[0]>=2,my);return}
   }
-  clearThrows();cmsg('');
-  setFig('you','idle','idle','bob');setFig('opp','taunt','pump','bob');
-  setPicks(true);ST.phase='await-pick';
+  readyPick();
+}
+/* team match: pairing by pairing; more pairings won wins; even sizes that tie get a captain tie-breaker */
+function tmNext(my){
+  var T=ST.tm;
+  if(!T.tb){
+    if(T.k+1<T.n)T.k++;
+    else if(T.sa===T.sb)T.tb=true;
+    else{endTeamMatch(T.sa>T.sb,my);return}
+  }else{endTeamMatch(T.tbRes>0,my);return}
+  tmPair();hud();readyPick();
+  if(T.tb){cmsg('TIE-BREAKER!','Captains decide!');say('Captain showdown!',2200)}else taunt(ST.fo);
 }
 function addPow(who){
   var f=$('#fig-'+who),a=$('#arena'),r=f.getBoundingClientRect(),ar=a.getBoundingClientRect();
@@ -1129,10 +1350,10 @@ function addPow(who){
   p.style.left=(r.left-ar.left+r.width/2-45)+'px';p.style.top=(r.top-ar.top+r.height*.3-45)+'px';
   a.appendChild(p);setTimeout(function(){p.remove()},900);
 }
-async function endMatch(youWon,my){
+async function finishFight(youWon,my,big,sub){
   ST.phase='ending';clearThrows();
   var winner=youWon?'you':'opp',loser=youWon?'opp':'you';
-  cmsg(youWon?'VICTORY!':'OH NO!','');
+  cmsg(big,sub||'');
   setFig(winner,'happy','cheer','bounce');setFig(loser,'shock','flail');
   if(youWon)say(pick(['Nooooo!','Waaaah!','I\'ll be back!','Not fair!']),1600);else say(pick(MATCH_WIN_LINES),1600);
   await wait(500);if(my!==ST.flow)return;
@@ -1141,33 +1362,179 @@ async function endMatch(youWon,my){
   Snd.play('whoosh');
   await wait(1500);if(my!==ST.flow)return;
   hush();
+  afterMatch(youWon,my);
+}
+function endMatch(youWon,my){finishFight(youWon,my,youWon?'VICTORY!':'OH NO!','')}
+function endTeamMatch(youWon,my){
+  var T=ST.tm;ST.fy=ST.teams[T.A].members[0];ST.fo=ST.teams[T.B].members[0];
+  finishFight(youWon,my,youWon?'VICTORY!':'OH NO!',T.sa+' - '+T.sb+(T.tb?' + tie-break':''));
+}
+async function afterMatch(youWon,my){
+  var r=ST.round;
   if(youWon){
-    Store.inc('wins');simulateRound(ST.round);
-    ST.lastRound=ST.round;ST.round++;
-    if(ST.round>=ST.R){goChampion();return}
+    Store.inc('wins');ST.winners[r][ST.pos>>(r+1)]=ME();
+    await resolveRound(r,my);if(my!==ST.flow)return;
+    ST.lastRound=r;ST.round++;
+    if(ST.round>=ST.R){goChampion(false);return}
     Snd.play('cheer');goBracket();
-  }else{Store.inc('losses');goRecovery()}
+  }else{Store.inc('losses');ST.lostAt=r;goRecovery()}
 }
 $('#picks').addEventListener('click',function(e){var b=e.target.closest('.pick');if(!b||b.disabled)return;onPick(+b.getAttribute('data-m'))});
+
+/* ---------- spectate: other battles play out on screen (skippable) ---------- */
+var SP={real:false,skip:false,all:false,wake:null,wspd:Store.get('wspd',1)===2?2:1};
+function sw(ms){return new Promise(function(res){
+  if(SP.skip||SP.all){res();return}
+  var t=setTimeout(done,ms*(SP.real?1:SPEED)/SP.wspd);
+  function done(){clearTimeout(t);SP.wake=null;res()}
+  SP.wake=done;
+})}
+function spStop(){SP.skip=true;if(ST.spec)SP.all=true;if(SP.wake)SP.wake()}
+function spAbort(my){return SP.skip||SP.all||my!==ST.flow}
+function renderSpeed(){$('#btn-wspeed').innerHTML=SP.wspd+'x<small>speed</small>'}
+function genScript(a,b){
+  var steps=[],team=ST.mode==='team',sa=0,sb=0,i,res;
+  function pair(k,tb){var x,y,r;do{x=rnd(3);y=rnd(3);r=x===y?0:((x-y+3)%3===1?1:-1);steps.push({k:k,tb:tb,x:x,y:y,res:r})}while(r===0);return r}
+  if(!team){res=pair(0,false);return{steps:steps,win:res>0?a:b,sa:res>0?1:0,sb:res>0?0:1,tb:false}}
+  for(i=0;i<ST.tsize;i++){res=pair(i,false);if(res>0)sa++;else sb++}
+  var w,tb=sa===sb;if(tb)w=pair(0,true)>0;else w=sa>sb;
+  return{steps:steps,win:w?a:b,sa:sa,sb:sb,tb:tb};
+}
+async function specThrow(st,my){
+  var T=ST.tm,words=['Rock...','Paper...','Scissors...'],i,ty=$('#t-you'),to=$('#t-opp');
+  clearThrows();
+  for(i=0;i<3;i++){
+    cmsg(words[i],'');Snd.play('tick');
+    setFig('you','angry',i%2?'idle':'pump','shake');setFig('opp','angry',i%2?'idle':'pump','shake');
+    await sw(230);if(spAbort(my))return;
+  }
+  cmsg('SHOOT!','');Snd.play('shoot');
+  ty.innerHTML=moveSVG(st.x);to.innerHTML=moveSVG(st.y);ty.className='throw show';to.className='throw show';
+  setFig('you','shock','throw');setFig('opp','shock','throw');
+  await sw(420);if(spAbort(my))return;
+  if(st.res===0){
+    cmsg('TIE!','Again!');Snd.play('tie');
+    setFig('you','shock','flail','hit');setFig('opp','shock','flail','hit');
+    await sw(520);return;
+  }
+  var leftWon=st.res>0,w=leftWon?st.x:st.y,l=leftWon?st.y:st.x;
+  if(T){if(T.tb)T.tbRes=leftWon?1:-1;else{T.res[T.k]=leftWon?1:-1;if(leftWon)T.sa++;else T.sb++}hud()}
+  if(!T){ST.score=[leftWon?1:0,leftWon?0:1];renderPips()}
+  var nm=CH[leftWon?ST.fy:ST.fo].n;
+  cmsg(winMsg(nm),moveSVG(w).replace('class="csvg"','')+VERB[w+'-'+l]);Snd.play(leftWon?'win':'lose');
+  (leftWon?ty:to).classList.add('win');(leftWon?to:ty).classList.add('lose');
+  setFig(leftWon?'you':'opp','happy','cheer','bounce');setFig(leftWon?'opp':'you','sad','sad','hit');
+  await sw(700);
+}
+/* one spectated battle: Solo = one quick throw; Teams = every pairing in turn (+captain tie-breaker) */
+async function specMatch(a,b,info,my){
+  var team=ST.mode==='team',sc=genScript(a,b),i,s=$('#s-match');
+  ST.tm=team?mkTm(a,b):null;ST.phase='spectating';ST.specShown++;
+  if(team){ST.tm.k=0;tmPair()}else{ST.fy=a;ST.fo=b;ST.score=[0,0]}
+  s.classList.toggle('team',team);
+  var chips=['<span>Battle '+info.i+' of '+info.n+'</span>'];
+  if(info.sib)chips.push('<span>'+STAR.replace('<svg','<svg width="16" height="16" style="vertical-align:-3px"')+' Winner plays you next!</span>');
+  if(info.quick>0)chips.push('<span>'+info.quick+' more battle'+(info.quick===1?'':'s')+' finished</span>');
+  $('#winfo').innerHTML=chips.join('');
+  hud();clearThrows();cmsg('');setFig('you','idle','idle','bob');setFig('opp','taunt','pump','bob');hush();
+  await sw(450);
+  for(i=0;i<sc.steps.length;i++){
+    if(spAbort(my))return sc.win;
+    var st=sc.steps[i];
+    if(team){ST.tm.tb=st.tb;ST.tm.k=st.k;tmPair();hud();clearThrows();setFig('you','idle','idle','bob');setFig('opp','taunt','pump','bob')}
+    await specThrow(st,my);
+    if(st.res===0)i=i; 
+  }
+  if(spAbort(my))return sc.win;
+  var leftWon=sc.win===a;
+  if(team){ST.fy=ST.teams[a].members[0];ST.fo=ST.teams[b].members[0];cmsg(winMsg(ST.teams[sc.win].name),sc.sa+' - '+sc.sb+(sc.tb?' + tie-break':''))}
+  else cmsg(winMsg(CH[sc.win].n),'');
+  clearThrows();
+  var wh=leftWon?'you':'opp',lh=leftWon?'opp':'you';
+  setFig(wh,'happy','cheer','bounce');setFig(lh,'shock','flail');
+  await sw(550);if(spAbort(my))return sc.win;
+  addPow(lh);Snd.play('bonk');setFig(lh,'dizzy','flail',lh==='you'?'flingL':'flingR');Snd.play('whoosh');
+  await sw(850);
+  return sc.win;
+}
+function coin(a,b){return Math.random()<.5?a:b}
+/* Settle every other match in round r. Watching: plays them (all of them in small rounds; a few highlights + a 'finished' summary in big
+   ones, always under ~30s at 1x). Not watching / Skip: instant. */
+async function resolveRound(r,my){
+  var e=entrants(r),W=ST.winners[r],pend=[],m,a,b,i;
+  for(m=0;m<W.length;m++){
+    if(W[m]!==undefined)continue;a=e[2*m];b=e[2*m+1];
+    if(a===BYE||b===BYE)W[m]=a===BYE?b:a;else pend.push(m);
+  }
+  if(!pend.length)return;
+  if(ST.spec&&pend.length>16){pend.forEach(function(m){W[m]=coin(e[2*m],e[2*m+1])});return}
+  if(!((ST.watch||ST.spec)&&!SP.all)){pend.forEach(function(m){W[m]=coin(e[2*m],e[2*m+1])});return}
+  var est=ST.mode==='team'?ST.tsize*2.6+1.9:4.5,show_,sib=ST.spec?-1:((ST.pos>>(r+1))^1);
+  if(pend.length<=7&&pend.length*est<=34)show_=pend.slice();
+  else{
+    var k=Math.max(2,Math.min(ST.spec?3:5,Math.floor(30/est))),rest=shuffle(pend.filter(function(x){return x!==sib}));
+    show_=(pend.indexOf(sib)>=0?[sib]:[]).concat(rest).slice(0,k).sort(function(x,y){return(x===sib?-1:y===sib?1:x-y)});
+  }
+  var quick=pend.filter(function(x){return show_.indexOf(x)<0});
+  quick.forEach(function(m){W[m]=coin(e[2*m],e[2*m+1])});
+  ST.watchLog.push({round:r,others:pend.length,shown:show_.length,quick:quick.length,est:Math.round(est*show_.length)});
+  var s=$('#s-match');s.classList.add('watch');s.classList.toggle('team',ST.mode==='team');show('s-match');
+  SP.skip=false;renderSpeed();setPicks(false);
+  $('#m-round').textContent=stageName(r,ST.R);
+  for(i=0;i<show_.length;i++){
+    m=show_[i];a=e[2*m];b=e[2*m+1];
+    if(spAbort(my)){W[m]=coin(a,b);continue}
+    W[m]=await specMatch(a,b,{i:i+1,n:show_.length,quick:quick.length,sib:m===sib},my);
+    if(my!==ST.flow)return;
+  }
+  s.classList.remove('watch');ST.tm=null;hush();
+}
+async function keepWatching(){
+  var my=++ST.flow,r=ST.round,i;
+  ST.spec=true;SP.all=false;SP.skip=false;ST.winners[r][ST.pos>>(r+1)]=ST.opp;ST.tm=null;
+  for(i=r;i<ST.R;i++){
+    await resolveRound(i,my);if(my!==ST.flow)return;
+  }
+  goChampion(true);
+}
+$('#btn-skip').addEventListener('click',function(){Snd.play('tap');spStop()});
+$('#btn-skipall').addEventListener('click',function(){Snd.play('tap');SP.all=true;spStop()});
+$('#btn-wspeed').addEventListener('click',function(){Snd.play('tap');SP.wspd=SP.wspd===1?2:1;Store.set('wspd',SP.wspd);renderSpeed()});
 
 /* ---------- recovery ---------- */
 var BANDAGE='<svg viewBox="0 0 100 40" style="position:absolute;left:30%;top:6%;width:44%;height:18%;overflow:visible"><g transform="rotate(-14 50 20)"><rect x="4" y="8" width="92" height="24" rx="10" fill="#ffd8b0" stroke="#a0704a" stroke-width="3"/><rect x="36" y="10" width="28" height="20" rx="3" fill="#f5c08f"/></g></svg>';
 function goRecovery(){
   ST.flow++;ST.phase='recovery';show('s-recovery');Snd.play('sad');
-  $('#rec-scene').innerHTML=recoverySVG()+'<div class="who" style="left:35%;top:43%;width:30%;height:46%">'+charSVG(ST.you,'dizzy','sad')+BANDAGE+'</div><div class="who" style="right:0;top:52%;width:22%;height:36%">'+charSVG(ST.opp,'happy','cheer',true)+'</div>';
-  $('#rec-msg').innerHTML=CH[ST.opp].n+' flung you!<br>Don\'t give up!';
+  $('#rec-scene').innerHTML=recoverySVG()+'<div class="who" style="left:35%;top:43%;width:30%;height:46%">'+charSVG(faceOf(ME()),'dizzy','sad')+BANDAGE+'</div><div class="who" style="right:0;top:52%;width:22%;height:36%">'+charSVG(faceOf(ST.opp),'happy','cheer',true)+'</div>';
+  $('#rec-msg').innerHTML=esc(nameOf(ST.opp))+' flung '+(ST.mode==='team'?'your team':'you')+'!<br>Don\'t give up!';
 }
 $('#btn-retry').addEventListener('click',function(){Snd.play('tap');startMatch()});
-$('#btn-again').addEventListener('click',function(){Snd.play('tap');var c=ST.cfg;startTournament(ST.you,c.size,c.mode,c.picks.slice())});
+$('#btn-keep').addEventListener('click',function(){Snd.play('tap');keepWatching()});
+$('#btn-again').addEventListener('click',function(){Snd.play('tap');startFromCfg()});
 
 /* ---------- champion ---------- */
 var confRAF=null;
-function goChampion(){
-  ST.flow++;ST.phase='champion';
-  var c=Store.inc('champs');
-  show('s-champ');Snd.play('fanfare');
-  $('#champ-scene').innerHTML=islandSVG()+'<div class="who" style="left:33%;top:36%;width:34%;height:50%">'+charSVG(ST.you,'happy','hold')+'</div><div class="who trophy-float" style="left:39%;top:2%;width:22%;height:32%">'+TROPHY+'</div>';
-  $('#champ-msg').innerHTML=CH[ST.you].n+' wins it all!<br>Beat '+(ST.N-1)+' fighters! Cups: '+c;
+function goChampion(spec){
+  ST.flow++;ST.phase='champion';ST.specChamp=!!spec;
+  var team=ST.mode==='team',champ=spec?ST.winners[ST.R-1][0]:ME(),c=Store.get('champs',0),sc,msg;
+  if(!spec){c=Store.inc('champs');if(team)Store.inc('teamChamps')}
+  ST.champ=champ;
+  show('s-champ');Snd.play(spec?'cheer':'fanfare');
+  if(team){
+    var T=ST.teams[champ],n=T.members.length,w=Math.min(34,92/(n*.82+.18)),step=w*.82,start=50-(step*(n-1)+w)/2,h=w*1.3;
+    sc=islandSVG();
+    T.members.forEach(function(id,i){sc+='<div class="who" style="left:'+(start+i*step)+'%;top:'+(86-h)+'%;width:'+w+'%;height:'+h+'%">'+charSVG(id,'happy',i===0?'hold':'cheer')+'</div>'});
+    sc+='<div class="who trophy-float" style="left:39%;top:0%;width:22%;height:30%">'+TROPHY+'</div>';
+    $('.champ-title').className='champ-title outline tm';
+    $('.champ-title').innerHTML='<span class="cn" style="background:'+T.color+'">'+esc(T.name.toUpperCase())+'</span>IS CHAMPION OF DREAM ISLAND!';
+    msg=spec?esc(T.name)+' won it all!<br>You got flung in the '+stageName(ST.lostAt,ST.R)+'.':esc(T.name)+' wins it all!<br>Beat '+(ST.N-1)+' team'+(ST.N===2?'':'s')+'! Cups: '+c;
+  }else{
+    sc=islandSVG()+'<div class="who" style="left:33%;top:36%;width:34%;height:50%">'+charSVG(champ,'happy','hold')+'</div><div class="who trophy-float" style="left:39%;top:2%;width:22%;height:32%">'+TROPHY+'</div>';
+    $('.champ-title').className='champ-title outline';
+    $('.champ-title').innerHTML='CHAMPION OF<br>DREAM ISLAND!';
+    msg=spec?esc(CH[champ].n)+' won it all!<br>You got flung in the '+stageName(ST.lostAt,ST.R)+'.':CH[champ].n+' wins it all!<br>Beat '+(ST.N-1)+' fighters! Cups: '+c;
+  }
+  $('#champ-scene').innerHTML=sc;$('#champ-msg').innerHTML=msg;
   startConfetti();
 }
 function startConfetti(){
@@ -1217,15 +1584,23 @@ window.__BFDI={
   roster:function(){return CH.map(function(c){return c.n})},
   rebuildGrid:function(){buildGrid();if(selId!==null)selectChar(selId,true)},
   startFor:function(id,size,mode,picks){startTournament(id,size||16,mode||'random',picks||[])},
-  setup:function(){return{size:ST.cfg.size,mode:ST.cfg.mode,picks:ST.cfg.picks.slice(),stored:Store.get('setup',null)}},
-  tour:function(){var r=ST.R,names=[];for(var i=0;i<r;i++)names.push(stageName(i,r));var real=ST.slots.filter(function(x){return x!==BYE});return{N:ST.N,B:ST.B,R:r,byes:ST.byes,byeSlots:ST.slots.filter(function(x){return x===BYE}).length,real:real.length,distinct:new Set(real).size,names:names,round:ST.round,stage:stageName(ST.round,r),alive:aliveCount(ST.round),pos:ST.pos,youId:ST.you,realIds:real,oppId:ST.opp}},
+  startTeams:function(id,count,size,picks,color,pat){startTeamTournament(id,count,size||3,picks||[],color,pat)},
+  teams:function(){return ST.teams?ST.teams.map(function(t){return{name:t.name,color:t.color,members:t.members.slice(),names:t.members.map(function(i){return CH[i].n})}}):null},
+  watchLog:function(){return ST.watchLog.slice()},
+  keep:function(){return keepWatching()},
+  setWatch:function(v){ST.cfg.watch=!!v;ST.watch=!!v},
+  champ:function(){return ST.champ},
+  maxTeams:maxTeams,
+  setup:function(){var c=ST.cfg;return{size:c.size,mode:c.mode,picks:c.picks.slice(),gm:c.gm,tcount:c.tcount,tsize:c.tsize,tpicks:c.tpicks.slice(),watch:c.watch,stored:Store.get('setup',null),storedWatch:Store.get('watch',null)}},
+  tour:function(){var r=ST.R,names=[];for(var i=0;i<r;i++)names.push(stageName(i,r));var real=ST.slots.filter(function(x){return x!==BYE});return{N:ST.N,B:ST.B,R:r,byes:ST.byes,byeSlots:ST.slots.filter(function(x){return x===BYE}).length,real:real.length,distinct:new Set(real).size,names:names,round:ST.round,stage:stageName(ST.round,r),alive:aliveCount(ST.round),pos:ST.pos,youId:ME(),realIds:real,oppId:ST.opp}},
   checkAll:function(){var bad=[];CH.forEach(function(c,i){try{['idle','happy','taunt','sad','shock','dizzy','angry'].forEach(function(ex){['idle','cheer','pump','throw','flail','sad','hold'].forEach(function(po){var v=charSVG(i,ex,po);if(!v||v.indexOf('NaN')>=0||v.indexOf('undefined')>=0)throw new Error(c.n)})})}catch(e){bad.push(c.n)}});return bad},
-  bracketNames:function(){return ST.slots.map(function(i){return i===BYE?'BYE':CH[i].n})},
-  state:function(){return{phase:ST.phase,round:ST.round,score:ST.score.slice(),you:ST.you,opp:ST.opp,youName:ST.you!=null?CH[ST.you].n:null,oppName:ST.opp!=null?CH[ST.opp].n:null,storage:Store.mode(),bracketFilled:ST.winners.map(function(w){return w.filter(function(x){return x!==undefined}).length}),R:ST.R,N:ST.N}},
+  bracketNames:function(){return ST.slots.map(function(i){return i===BYE?'BYE':nameOf(i)})},
+  state:function(){return{phase:ST.phase,round:ST.round,score:ST.score.slice(),you:ST.you,opp:ST.opp,mode:ST.mode,spec:ST.spec,specShown:ST.specShown,tm:ST.tm?{k:ST.tm.k,n:ST.tm.n,sa:ST.tm.sa,sb:ST.tm.sb,tb:ST.tm.tb,res:ST.tm.res.slice()}:null,youName:ST.you!=null?CH[ST.you].n:null,oppName:ST.opp!=null?nameOf(ST.opp):null,storage:Store.mode(),bracketFilled:ST.winners.map(function(w){return w.filter(function(x){return x!==undefined}).length}),R:ST.R,N:ST.N}},
   easy:easyChance,
   setAI:function(m){ST.aiMode=m||null},
   setSpeed:function(x){SPEED=x},
-  stats:function(){return{wins:Store.get('wins',0),champs:Store.get('champs',0),played:Store.get('played',0),losses:Store.get('losses',0)}},
+  setSpecReal:function(v){SP.real=!!v},
+  stats:function(){return{teamChamps:Store.get('teamChamps',0),wins:Store.get('wins',0),champs:Store.get('champs',0),played:Store.get('played',0),losses:Store.get('losses',0)}},
   iconHTML:function(){return '<div id="icon" style="width:180px;height:180px;background:linear-gradient(#49b4ff,#a8e2ff 68%,#5cbf35 68.5%);position:relative;overflow:hidden"><div style="position:absolute;left:-6px;top:40px;width:104px;height:106px">'+charSVG(0,'taunt','pump')+'</div><div style="position:absolute;right:-6px;top:40px;width:104px;height:106px">'+charSVG(1,'taunt','pump',true)+'</div><div style="position:absolute;left:0;right:0;top:6px;text-align:center;font:900 34px Arial Black,Arial,sans-serif;color:#fff;text-shadow:2px 2px 0 #1b1b2f,-2px 2px 0 #1b1b2f,2px -2px 0 #1b1b2f,-2px -2px 0 #1b1b2f,0 4px 0 #1b1b2f">BFDI</div><div style="position:absolute;left:68px;top:120px;width:44px;height:44px">'+moveSVG(2)+'</div></div>'}
 };
 })();
